@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DogoMovement : MonoBehaviour {
 
-	public float verticalSpeed = 2f;
-	public float rotateSpeed = 0.75f;
-	public float horizontalSpeed = 2f;
+	public float verticalSpeed;
+	public float rotateSpeed ;
+	public float horizontalSpeed;
+
+	public float headRotateSpeed;
 
 	public float leftRightLook = 0f;
 	public float upDownLook = 0f;
@@ -15,6 +17,8 @@ public class DogoMovement : MonoBehaviour {
 	private bool rightTurn = false;
 
 	public Transform Head;
+
+	public float rotateThreshold;
 
 
 	// Use this for initialization
@@ -42,14 +46,14 @@ public class DogoMovement : MonoBehaviour {
 			rotateSpeed = 3f;
 		}
 
-		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 300f; // horizontal mouseSpeed
-		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 200f; // vertical mouseSpeed
+		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
+		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * headRotateSpeed; // vertical mouseSpeed
 
 		leftRightLook += mouseX;
-		if (leftRightLook > 40f) {
+		if (leftRightLook > (rotateThreshold)) {
 			rightTurn = true;
 		} 
-		else if (leftRightLook < -40f) {
+		else if (leftRightLook < (-1 * rotateThreshold)) {
 			leftTurn = true;
 		} 
 		else{
@@ -65,7 +69,7 @@ public class DogoMovement : MonoBehaviour {
 		}
 
 
-		leftRightLook = Mathf.Clamp (leftRightLook, -50f, 50f);
+		leftRightLook = Mathf.Clamp (leftRightLook, (-1 * rotateThreshold) -10f, rotateThreshold + 10f);
 
 		//transform.Rotate( 0f, mouseX, 0f );
 
