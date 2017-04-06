@@ -45,7 +45,7 @@ public class splineWalker : MonoBehaviour {
 			}
 		}
 
-		Debug.Log(lerpVal);
+//		Debug.Log(lerpVal);
 
 	}
 
