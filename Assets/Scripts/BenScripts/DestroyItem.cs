@@ -12,14 +12,14 @@ public class DestroyItem : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-		if(Input.GetKeyDown(KeyCode.Space)){
+		Debug.Log(counter);
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (counter < 10) {
 			counter++;
+		} else {
+			Destroy (this.gameObject);
 		}
-
-		if (counter == 10) {
-			Destroy(this.gameObject);
-		}
-
 	}
 }
