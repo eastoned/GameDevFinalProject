@@ -16,7 +16,7 @@ public class DestroyItem : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (counter < 10) {
+		if (counter < 3) {
 			counter++;
 		} else {
 			Destroy (this.gameObject);
