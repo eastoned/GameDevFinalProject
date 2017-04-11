@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class DogoMovement : MonoBehaviour {
 
-	public float speed = 1f;
+	public float speed = 5f;
 	public float rotateSpeed = 1f;
-
-
-
-	// Use this for initialization
-	void Start () {
-
-
-	}
 
 	// Update is called once per frame
 	void Update () {
@@ -29,9 +21,12 @@ public class DogoMovement : MonoBehaviour {
 		if(Input.GetKey (KeyCode.E)){
 			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed, 0f );
 		}
-		if(Input.GetKey (KeyCode.LeftShift)){
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			speed = 10f;
+		} else {
 			speed = 5f;
 		}
+
 
 
 	}
