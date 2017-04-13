@@ -48,7 +48,7 @@ public class DogoMovement : MonoBehaviour {
 		transform.Translate (horizontal * Time.deltaTime * horizontalSpeed, 0f, vertical * Time.deltaTime * verticalSpeed);
 
 		if(Input.GetKey (KeyCode.LeftShift)){
-			verticalSpeed = 6f;
+			verticalSpeed = 10f;
 			horizontalSpeed = 4f;
 			rotateSpeed = 2f;
 		}

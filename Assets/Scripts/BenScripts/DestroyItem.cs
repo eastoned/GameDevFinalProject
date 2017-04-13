@@ -13,7 +13,6 @@ public class DestroyItem : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(counter);
 	}
 
 	void OnTriggerEnter(Collider other){
