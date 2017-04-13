@@ -13,8 +13,16 @@ public class DogoMovement : MonoBehaviour {
 	public float leftRightLook = 0f;
 	public float upDownLook = 0f;
 
-	private bool leftTurn = false;
-	private bool rightTurn = false;
+	private bool leftTurn1 = false;
+	private bool rightTurn1 = false;
+
+	private bool leftTurn2 = false;
+	private bool rightTurn2 = false;
+
+	private bool leftTurn3 = false;
+	private bool rightTurn3 = false;
+
+
 
 	public Transform Head;
 
@@ -23,8 +31,7 @@ public class DogoMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-
+		
 	}
 
 	// Update is called once per frame
@@ -41,31 +48,77 @@ public class DogoMovement : MonoBehaviour {
 		transform.Translate (horizontal * Time.deltaTime * horizontalSpeed, 0f, vertical * Time.deltaTime * verticalSpeed);
 
 		if(Input.GetKey (KeyCode.LeftShift)){
-			verticalSpeed = 5f;
-			horizontalSpeed = 2f;
-			rotateSpeed = 3f;
+			verticalSpeed = 6f;
+			horizontalSpeed = 4f;
+			rotateSpeed = 2f;
 		}
 
 		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
 		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * headRotateSpeed; // vertical mouseSpeed
 
 		leftRightLook += mouseX;
+
 		if (leftRightLook > (rotateThreshold)) {
-			rightTurn = true;
+			rightTurn1 = true;
+			rightTurn2 = false;
+			rightTurn3 = false;
+
+		} 
+		else if (leftRightLook > (rotateThreshold - 15)) {
+			rightTurn1 = false;
+			rightTurn2 = true;
+			rightTurn3 = false;
+		} 
+		else if (leftRightLook > (rotateThreshold - 36)) {
+			rightTurn1 = false;
+			rightTurn2 = false;
+			rightTurn3 = true;
 		} 
 		else if (leftRightLook < (-1 * rotateThreshold)) {
-			leftTurn = true;
+			leftTurn1 = true;
+			leftTurn2 = false;
+			leftTurn3 = false;
+		}
+		else if (leftRightLook < (-1 * rotateThreshold + 15)) {
+			leftTurn1 = false;
+			leftTurn2 = true;
+			leftTurn3 = false;
+		}
+		else if (leftRightLook < (-1 * rotateThreshold + 36)) {
+			leftTurn1 = false;
+			leftTurn2 = false;
+			leftTurn3 = true;
 		} 
 		else{
-			rightTurn = false;
-			leftTurn = false;
+			rightTurn1 = false;
+			leftTurn1 = false;
+			rightTurn2 = false;
+			leftTurn2 = false;
+			rightTurn3 = false;
+			leftTurn3 = false;
+		}
+			
+		if (rightTurn1){
+			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed * 1.33f, 0f );
+		}
+		if (leftTurn1){
+			transform.localEulerAngles += new Vector3( 0f, -90f * Time.deltaTime * rotateSpeed* 1.33f, 0f );
 		}
 
-		if (rightTurn){
-			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed, 0f );
+
+		if (rightTurn2){
+			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed * 1f, 0f );
 		}
-		if (leftTurn){
-			transform.localEulerAngles += new Vector3( 0f, -90f * Time.deltaTime * rotateSpeed, 0f );
+		if (leftTurn2){
+			transform.localEulerAngles += new Vector3( 0f, -90f * Time.deltaTime * rotateSpeed * 1f, 0f );
+		}
+
+
+		if (rightTurn3){
+			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed * 0.66f, 0f );
+		}
+		if (leftTurn3){
+			transform.localEulerAngles += new Vector3( 0f, -90f * Time.deltaTime * rotateSpeed * 0.66f, 0f );
 		}
 
 
@@ -77,6 +130,7 @@ public class DogoMovement : MonoBehaviour {
 		upDownLook = Mathf.Clamp( upDownLook, -50f, 50f ); // constrain look 80 degrees up or down
 
 		Head.localEulerAngles = new Vector3(upDownLook, leftRightLook, 0f);
+
 
 	}
 }
