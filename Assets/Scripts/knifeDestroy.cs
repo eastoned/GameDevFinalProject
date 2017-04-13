@@ -26,6 +26,7 @@ public class knifeDestroy : MonoBehaviour {
 				counter++;
 			} else {
 				Destroy (other.gameObject);
+				counter = 0;
 				Instantiate(Crumb, other.transform.position, other.transform.rotation);
 			}
 		}
