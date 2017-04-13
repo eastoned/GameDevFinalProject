@@ -16,10 +16,15 @@ public class splineWalker : MonoBehaviour {
 	public Transform TargObj;
 
 	public bool attackNow;
+	public bool sleeping;
+
+	public Vector3 sleepingPos;
 
 	float lerpVal;
 
 	private void Update () {
+
+		Debug.Log(transform.position - sleepingPos);
 
 		if(attackNow){
 			
@@ -29,7 +34,26 @@ public class splineWalker : MonoBehaviour {
 
 			lerpVal = 0f;
 
-		}else{
+		}
+
+		//FIX THIS
+		if (sleeping){
+
+			if(transform.position.magnitude >= sleepingPos.magnitude  + new Vector3(0.5f,0.5f,0.5f).magnitude){
+				transform.LookAt(sleepingPos);
+				transform.Translate(Vector3.forward * Time.deltaTime * 5f);
+			} 
+			else{
+
+				transform.position = sleepingPos;
+
+			}
+
+
+		}
+
+
+		else{
 
 			progress += Time.deltaTime / duration;
 			if (progress > 1f) {
@@ -37,11 +61,12 @@ public class splineWalker : MonoBehaviour {
 			}
 
 
-			lerpVal += 2 * Time.deltaTime;
+			lerpVal += 1 * Time.deltaTime;
 			Vector3 position = Vector3.Lerp(transform.localPosition, spline.GetPoint(progress), lerpVal);
 			transform.localPosition = position;
 			if (lookForward) {
 				transform.LookAt(position + spline.GetDirection(progress));
+
 			}
 		}
 
