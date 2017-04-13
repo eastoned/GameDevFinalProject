@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyItem : MonoBehaviour {
 
 	private int counter = 0;
+	public GameObject Crumb; 
 	// Use this for initialization
 	void Start () {
 
@@ -20,6 +21,7 @@ public class DestroyItem : MonoBehaviour {
 			counter++;
 		} else {
 			Destroy (this.gameObject);
+			Instantiate(Crumb, transform.position, transform.rotation);
 		}
 	}
 }
