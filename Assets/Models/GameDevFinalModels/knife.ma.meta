@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: f570b5ef9dca64a35b0d6160af4e5f81
-timeCreated: 1491270435
+guid: 11af4c26cbb974ec987497ac332cdf2e
+timeCreated: 1492098750
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: nurbsCube1
+    100004: pCube3
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pCube4
-    6400000: //RootNode
+    400002: nurbsCube1
+    400004: pCube3
+    2300000: pCube3
+    3300000: pCube3
+    4300000: pCube3
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -38,7 +41,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
