@@ -47,8 +47,6 @@ public class headBobScript : MonoBehaviour {
 		//transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,Mathf.Lerp(0,playerForw, lerpVal));
 		//transform.localEulerAngles = new Vector3(0,0,playerForw);
 
-		Debug.Log(playerForw);
-
 		
 	}
 }
