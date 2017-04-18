@@ -6,7 +6,9 @@ public class Timer : MonoBehaviour {
 
 	public float timeleft;
 	public GameObject x;
+
 	public static bool gameOver = false;
+
 	DogoMovement dogomovement;
 
 	// Use this for initialization
@@ -35,9 +37,11 @@ public class Timer : MonoBehaviour {
 			timeleft -= Time.deltaTime;
 			Debug.Log(timeleft);
 		}
+
 		if (timeleft <= 0) {
 			gameOver = true;
 		}
+
 		
 	}
 }
