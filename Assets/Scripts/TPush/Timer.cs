@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour {
 
-	public float timeleft;
+	public float timeleft = 120f;
 	public GameObject x;
+
+	public static bool gameOver = false;
+
 	DogoMovement dogomovement;
 
 	// Use this for initialization
@@ -33,6 +36,10 @@ public class Timer : MonoBehaviour {
 		{
 			timeleft -= Time.deltaTime;
 			Debug.Log(timeleft);
+		}
+
+		if (timeleft <= 0) {
+			gameOver = true;
 		}
 
 		
