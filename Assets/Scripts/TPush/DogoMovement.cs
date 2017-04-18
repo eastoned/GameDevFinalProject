@@ -22,7 +22,14 @@ public class DogoMovement : MonoBehaviour {
 	private bool leftTurn3 = false;
 	private bool rightTurn3 = false;
 
+	public bool knifePickup = false;
 
+	public GameObject headknife;
+	public GameObject ZoneKnife;
+
+	public float knifetime;
+	public float knifefulltime;
+	public float knifepass;
 
 	public Transform Head;
 
@@ -31,11 +38,33 @@ public class DogoMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		headknife.SetActive (false);
+		knifefulltime = knifetime;
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+
+
+		if (knifePickup){
+			headknife.SetActive (true);
+			knifetime -= Time.deltaTime * 2f;
+			knifepass = knifefulltime - knifetime;
+			verticalSpeed += (knifepass / 70f);
+			horizontalSpeed += (knifepass / 70f);
+			rotateSpeed += (knifepass / 90f);
+			if(verticalSpeed > 27f){
+				verticalSpeed = 27f;
+			}
+			if(horizontalSpeed > 25f){
+				horizontalSpeed = 25f;
+			}
+			if(rotateSpeed > 7f){
+				rotateSpeed = 7f;
+			}
+		}
+			
 
 		if ( Input.GetMouseButton(0) ) {
 			Cursor.lockState = CursorLockMode.Locked; // lock cursor always in middle of screen
@@ -48,9 +77,30 @@ public class DogoMovement : MonoBehaviour {
 		transform.Translate (horizontal * Time.deltaTime * horizontalSpeed, 0f, vertical * Time.deltaTime * verticalSpeed);
 
 		if(Input.GetKey (KeyCode.LeftShift)){
-			verticalSpeed = 10f;
-			horizontalSpeed = 4f;
-			rotateSpeed = 2f;
+			if (knifePickup) {
+				verticalSpeed += 1f;
+				horizontalSpeed += 1f;
+				rotateSpeed += 1f;
+			} 
+			else {
+				verticalSpeed = 10f;
+				horizontalSpeed = 4f;
+				rotateSpeed = 2f;
+			}
+		}
+		else{
+			if (knifePickup) {
+				verticalSpeed = verticalSpeed;
+				horizontalSpeed = horizontalSpeed;
+				rotateSpeed = rotateSpeed;
+			} 
+			else
+			{
+				verticalSpeed = 4f;
+				horizontalSpeed = 2f;
+				rotateSpeed = 0.5f;
+			}
+
 		}
 
 		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
@@ -132,5 +182,12 @@ public class DogoMovement : MonoBehaviour {
 		Head.localEulerAngles = new Vector3(upDownLook, leftRightLook, 0f);
 
 
+	}
+	void OnTriggerEnter(Collider other){
+
+		if(other.gameObject == ZoneKnife){
+			knifePickup = true;
+			Destroy (other.gameObject);
+			}
 	}
 }
