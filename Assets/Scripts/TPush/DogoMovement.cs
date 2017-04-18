@@ -27,7 +27,7 @@ public class DogoMovement : MonoBehaviour {
 	public GameObject headknife;
 	public GameObject ZoneKnife;
 
-	public float knifetime;
+	public float knifetime = 60f;
 	public float knifefulltime;
 	public float knifepass;
 
@@ -51,17 +51,17 @@ public class DogoMovement : MonoBehaviour {
 			headknife.SetActive (true);
 			knifetime -= Time.deltaTime * 2f;
 			knifepass = knifefulltime - knifetime;
-			verticalSpeed += (knifepass / 70f);
-			horizontalSpeed += (knifepass / 70f);
-			rotateSpeed += (knifepass / 90f);
+			verticalSpeed += (knifepass / 100f);
+			horizontalSpeed += (knifepass / 100f);
+			rotateSpeed += (knifepass / 130f);
 			if(verticalSpeed > 27f){
 				verticalSpeed = 27f;
 			}
 			if(horizontalSpeed > 25f){
 				horizontalSpeed = 25f;
 			}
-			if(rotateSpeed > 7f){
-				rotateSpeed = 7f;
+			if(rotateSpeed > 6f){
+				rotateSpeed = 6f;
 			}
 		}
 			
