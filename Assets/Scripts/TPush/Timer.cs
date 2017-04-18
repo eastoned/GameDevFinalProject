@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour {
 
-	public float timeleft;
+	public float timeleft = 120f;
 	public GameObject x;
 	DogoMovement dogomovement;
 
