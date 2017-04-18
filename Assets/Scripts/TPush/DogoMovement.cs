@@ -34,12 +34,16 @@ public class DogoMovement : MonoBehaviour {
 	public Transform Head;
 
 	public float rotateThreshold;
+	public CharacterController chrctrl;
 
 
 	// Use this for initialization
 	void Start () {
 		headknife.SetActive (false);
 		knifefulltime = knifetime;
+		chrctrl = GetComponent<CharacterController> ();
+
+
 	}
 
 	// Update is called once per frame
@@ -74,7 +78,7 @@ public class DogoMovement : MonoBehaviour {
 		float horizontal = Input.GetAxis("Horizontal"); // left/right movement
 		float vertical = Input.GetAxis("Vertical"); // up/down movement
 
-		transform.Translate (horizontal * Time.deltaTime * horizontalSpeed, 0f, vertical * Time.deltaTime * verticalSpeed);
+		chrctrl.Move (transform.TransformDirection ( new Vector3(horizontal * Time.deltaTime * horizontalSpeed, 0f, vertical * Time.deltaTime * verticalSpeed)));
 
 		if(Input.GetKey (KeyCode.LeftShift)){
 			if (knifePickup) {
