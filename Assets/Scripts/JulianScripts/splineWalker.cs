@@ -22,9 +22,10 @@ public class splineWalker : MonoBehaviour {
 
 	float lerpVal;
 
+	float goBackSleep = 0f;
+
 	private void Update () {
 
-		Debug.Log(transform.position - sleepingPos);
 
 		if(attackNow){
 			
@@ -33,24 +34,33 @@ public class splineWalker : MonoBehaviour {
 
 
 			lerpVal = 0f;
-
 		}
 
-		//FIX THIS
+
 		if (sleeping){
 
-			if(transform.position.magnitude >= sleepingPos.magnitude  + new Vector3(0.5f,0.5f,0.5f).magnitude){
+			if(Vector3.Distance(transform.position,sleepingPos) >= 0.5f){
+				
 				transform.LookAt(sleepingPos);
 				transform.Translate(Vector3.forward * Time.deltaTime * 5f);
+
 			} 
 			else{
 
 				transform.position = sleepingPos;
+				transform.eulerAngles = Vector3.zero;
 
 			}
 
 
+			if(Vector3.Distance(TargObj.position,sleepingPos) <= 10){
+
+				sleeping = false;
+				
+			}
 		}
+
+	
 
 
 		else{
@@ -68,6 +78,14 @@ public class splineWalker : MonoBehaviour {
 				transform.LookAt(position + spline.GetDirection(progress));
 
 			}
+
+		
+			goBackSleep += Time.deltaTime / (duration * 5);
+			if (goBackSleep > 1f) {
+				sleeping = true;
+			}
+
+//			Debug.Log(goBackSleep);
 		}
 
 //		Debug.Log(lerpVal);
