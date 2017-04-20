@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/CameraScripts/dogActions.cs.meta
 guid: aa2c2fbdfcaa448faa35174cb3b3976b
 timeCreated: 1492569668
+=======
+guid: 623a0c14a65974fc7b651e368d340f74
+timeCreated: 1491828378
+>>>>>>> master:Assets/Other/Scenes/Menu/rotateToMouse.cs.meta
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
