@@ -58,7 +58,7 @@ public class DogoMovement : MonoBehaviour {
 
 		if (knifePickup){
 			headknife.SetActive (true);
-			knifetime -= Time.deltaTime * 2f;
+			knifetime -= Time.deltaTime;
 			knifepass = knifefulltime - knifetime;
 			verticalSpeed += (knifepass / 100f);
 			horizontalSpeed += (knifepass / 100f);
@@ -115,10 +115,10 @@ public class DogoMovement : MonoBehaviour {
 		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
 		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * headRotateSpeed; // vertical mouseSpeed
 
-		Debug.Log ("mousex" + mouseX.ToString());
-		Debug.Log ("mouseY" + mouseY.ToString());
+//		Debug.Log ("mousex" + mouseX.ToString());
+//		Debug.Log ("mouseY" + mouseY.ToString());
 		leftRightLook += mouseX;
-		Debug.Log("look" + leftRightLook.ToString());
+
 		/*
 		if (leftRightLook > (rotateThreshold)) {
 			rightTurn1 = true;
