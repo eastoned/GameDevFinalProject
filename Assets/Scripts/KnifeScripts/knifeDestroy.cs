@@ -22,7 +22,7 @@ public class knifeDestroy : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 
-		Debug.Log (other.gameObject.layer);
+		///Debug.Log (other.gameObject.layer);
 		if (other.gameObject.layer == 8) {
 			if (counter1 < 3) {
 				counter1++;
