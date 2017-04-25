@@ -16,6 +16,9 @@ public class bodyAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKey (KeyCode.W)) {
+			
+		}
+
 	}
 }
