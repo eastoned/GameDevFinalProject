@@ -30,16 +30,13 @@ public class DogSounds : MonoBehaviour {
 			dogWalkingSound.Stop (); //stop playing the sound if you are not pressing anything
 		}
 
-		if (time <= 0.0f) {
-			if (dogPantingSound.isPlaying == false) {
-				dogPantingSound.Play ();
-			}
-		} else {
-			dogPantingSound.Stop ();
-		}
-
 		if (time <= -7.0f) {
-			time = 20.0f;
+			if (dogPantingSound.isPlaying == false) {
+				time = 20.0f;
+				dogPantingSound.Play ();
+			} else {
+				dogPantingSound.Stop ();
+			}
 		}
-	}		
+	}
 }
