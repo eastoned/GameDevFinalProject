@@ -12,8 +12,12 @@ public class headBobScript : MonoBehaviour {
 	public float bobAmplitude;
 	public float bobFreq;
 
+	private Vector3 originPos;
+
 	// Use this for initialization
 	void Start () {
+
+		originPos = transform.localPosition;
 		
 	}
 	
@@ -40,12 +44,12 @@ public class headBobScript : MonoBehaviour {
 
 		} 
 
-		//playerForw= (Mathf.Sin(Mathf.Lerp(0,sinForw, lerpVal)))* bobSpeed;
 		playerForw= (Mathf.Sin(sinForw * bobFreq))* bobAmplitude;
 
-		transform.localEulerAngles = new Vector3(transform.localEulerAngles.x,transform.localEulerAngles.y,Mathf.Lerp(0,playerForw, lerpVal));
-		//transform.localPosition = new Vector3(transform.localPosition.x,transform.localPosition.y,Mathf.Lerp(0,playerForw, lerpVal));
-		//transform.localEulerAngles = new Vector3(0,0,playerForw);
+		transform.localEulerAngles = new Vector3(Mathf.Lerp(0,playerForw *0.00f, lerpVal),transform.localEulerAngles.y,Mathf.Lerp(0,playerForw, lerpVal));
+		transform.localPosition = new Vector3(transform.localPosition.x,
+			Mathf.Lerp(originPos.y, originPos.y +(playerForw *0.002f), lerpVal), transform.localPosition.z);
+
 
 		
 	}

@@ -40,6 +40,8 @@ public class DogoMovement : MonoBehaviour {
 	public CharacterController chrctrl;
 
 
+
+
 	// Use this for initialization
 	void Start () {
 		headknife.SetActive (false);
@@ -92,7 +94,7 @@ public class DogoMovement : MonoBehaviour {
 			else {
 				verticalSpeed = 10f;
 				//horizontalSpeed = 4f;
-				rotateSpeed = 2f;
+				rotateSpeed = 0.1f;
 			}
 		}
 		else{
@@ -105,7 +107,7 @@ public class DogoMovement : MonoBehaviour {
 			{
 				verticalSpeed = 10f;
 				horizontalSpeed = 4f;
-				rotateSpeed = 0.5f;
+				rotateSpeed = 0.1f;
 			}
 
 		}
@@ -158,9 +160,9 @@ public class DogoMovement : MonoBehaviour {
 			leftTurn3 = false;
 		}
 			*/
-		if (Input.GetKey (KeyCode.W)) {
-			transform.localEulerAngles += new Vector3( 0f, mouseX * Time.deltaTime * 100f, 0f);
-		}
+		//if (Input.GetKey (KeyCode.W)) {
+		transform.localEulerAngles += new Vector3( 0f, leftRightLook * Time.deltaTime * 1f, 0f);
+		//}
 
 		/*if (rightTurn1){
 			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed * 1.33f, 0f );
@@ -200,6 +202,7 @@ public class DogoMovement : MonoBehaviour {
 		upDownLook = Mathf.Clamp( upDownLook, -50f, 50f ); // constrain look 80 degrees up or down
 
 		Head.localEulerAngles = new Vector3(-leftRightLook, 180f, -upDownLook);
+		//Head.localPosition = new Vector3(0f,0.6275087f,(Head.localEulerAngles.x * 0.1f) -3.483373e-17f );
 
 
 	}

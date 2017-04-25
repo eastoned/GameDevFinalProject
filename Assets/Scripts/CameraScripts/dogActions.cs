@@ -13,6 +13,7 @@ public class dogActions : MonoBehaviour {
 	public GameObject dogoNeck;
 
 	Vector3 camOriginalPos;
+	Quaternion camOriginalRot;
 
 	public float idleTimeToSit;
 
@@ -25,7 +26,8 @@ public class dogActions : MonoBehaviour {
 
 		mainCam = Camera.main;
 
-		camOriginalPos = new Vector3(0f,0.73f,-0.545f);
+		camOriginalPos = mainCam.transform.localPosition;
+		camOriginalRot = mainCam.transform.localRotation;
 
 		axisRandomMov = new Vector3(Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f));
 		speedRandomMov = Random.Range(0.001f,0.003f);
@@ -40,7 +42,7 @@ public class dogActions : MonoBehaviour {
 	
 
 		timeToSit += Time.deltaTime;
-		Debug.Log(axisRandomMov);
+		Debug.Log(lerpValPos);
 
 		if (timeToSit >= idleTimeToSit - 0.5f && timeToSit <= idleTimeToSit - 0.1f){
 			lerpValPos = 0f;
@@ -55,19 +57,18 @@ public class dogActions : MonoBehaviour {
 		if(timeToSit >= idleTimeToSit){
 
 			sitDown();
-			lerpValPos += 0.005f * Time.deltaTime;
+			//lerpValPos += 0.1f * Time.deltaTime;
 
 
 		} else {
-			
+			lerpValPos += 0.1f * Time.deltaTime;
 
 			mainCam.transform.localPosition = Vector3.Lerp(mainCam.transform.localPosition, camOriginalPos,  lerpValPos);
 			//mainCam.transform.localEulerAngles = Vector3.Lerp(mainCam.transform.localEulerAngles, Vector3.zero, lerpValPos);
-			mainCam.transform.localRotation = Quaternion.Slerp(mainCam.transform.localRotation, Quaternion.identity,lerpValPos);
+			mainCam.transform.localRotation = Quaternion.Slerp(mainCam.transform.localRotation, camOriginalRot,lerpValPos);
 
-			//fix spin move!!
 
-				Quaternion.Euler(Vector3.Lerp(mainCam.transform.localEulerAngles, Vector3.zero, lerpValPos));
+			//Quaternion.Euler(Vector3.Lerp(mainCam.transform.localEulerAngles, Vector3.zero, lerpValPos));
 			
 
 //			mainCam.transform.localPosition = camOriginalPos;
@@ -84,15 +85,23 @@ public class dogActions : MonoBehaviour {
 	void sitDown(){
 		
 
-		if(lerpValPos <= 0.04f){
-
-			mainCam.transform.localPosition = Vector3.Lerp(mainCam.transform.localPosition, 
-				new Vector3(mainCam.transform.localPosition.x,1.3f,mainCam.transform.localPosition.z),lerpValPos);
-
-			mainCam.transform.localEulerAngles = Vector3.Lerp(mainCam.transform.localEulerAngles, 
-				new Vector3(33f,mainCam.transform.localEulerAngles.y,mainCam.transform.localEulerAngles.z),lerpValPos);
-		
-		} else {
+//		if(lerpValPos <= 0.4f){
+//
+//			mainCam.transform.localPosition = Vector3.Lerp(mainCam.transform.localPosition, 
+//				new Vector3(mainCam.transform.localPosition.x,1.3f,mainCam.transform.localPosition.z),lerpValPos);
+//
+//			mainCam.transform.localEulerAngles = Vector3.Lerp(mainCam.transform.localEulerAngles, 
+//				new Vector3(33f,mainCam.transform.localEulerAngles.y,mainCam.transform.localEulerAngles.z),lerpValPos);
+//		
+//		} 
+//
+////		if(mainCam.transform.localPosition.y <= 1.3f){
+////
+////			mainCam.transform.localPosition += new Vector3(0f,0.5f * Time.deltaTime, 0f);
+////			mainCam.transform.localEulerAngles += new Vector3 (0.5f * Time.deltaTime, 0f, 0f);
+////
+////		}
+//		else {
 
 			counterRandomMov+= Time.deltaTime;
 			if(counterRandomMov >= 10){
@@ -103,17 +112,20 @@ public class dogActions : MonoBehaviour {
 					axisRandomMov = new Vector3(Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f));
 				}
 
-				speedRandomMov = Random.Range(0.001f,0.003f);
+				speedRandomMov = Random.Range(0.0001f,0.001f);
 
 				counterRandomMov = 0f;
 
 			}
-			mainCam.transform.RotateAround(dogoNeck.transform.localPosition, axisRandomMov, 0.0005f);
+			//mainCam.transform.RotateAround(dogoNeck.transform.localPosition, axisRandomMov, 0.0005f);
+			mainCam.transform.localEulerAngles += axisRandomMov * 0.1f;
+
+			Debug.Log(axisRandomMov);
 			
 
 		
 
-		}
+		//}
 
 
 
