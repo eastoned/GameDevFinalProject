@@ -94,7 +94,7 @@ public class DogoMovement : MonoBehaviour {
 			else {
 				verticalSpeed = 10f;
 				//horizontalSpeed = 4f;
-				rotateSpeed = 0.1f;
+				rotateSpeed = 0.2f;
 			}
 		}
 		else{
@@ -107,7 +107,7 @@ public class DogoMovement : MonoBehaviour {
 			{
 				verticalSpeed = 10f;
 				horizontalSpeed = 4f;
-				rotateSpeed = 0.1f;
+				rotateSpeed = 0.2f;
 			}
 
 		}
@@ -161,7 +161,13 @@ public class DogoMovement : MonoBehaviour {
 		}
 			*/
 		//if (Input.GetKey (KeyCode.W)) {
-		transform.localEulerAngles += new Vector3( 0f, leftRightLook * Time.deltaTime * 1f, 0f);
+		if (leftRightLook < 15f && leftRightLook > -15f) {
+			
+			transform.localEulerAngles += Vector3.zero;
+			
+		} else {
+			transform.localEulerAngles += new Vector3 (0f, leftRightLook * Time.deltaTime * 1f, 0f);
+		}
 		//}
 
 		/*if (rightTurn1){
