@@ -1,61 +1,23 @@
 fileFormatVersion: 2
-guid: 17be6ad8f47be4e48b6541249f03ea04
-timeCreated: 1492718179
+guid: ecf39ad60c7fe475c8ad4c0001194f65
+timeCreated: 1493331216
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Back
-    100002: backLeftLeg
-    100004: backLeftPaw
-    100006: backRightLeg
-    100008: backRightPaw
-    100010: BODY
-    100012: //RootNode
-    100014: HEAD
-    100016: LeftBottomEar
-    100018: leftFrontPaw
-    100020: leftFrontShoulder
-    100022: LeftTopEar
-    100024: polySurface4
-    100026: RightBottomEar
-    100028: rightFrontPaw
-    100030: rightFrontShoulder
-    100032: RightTopEar
-    100034: tailEnd
-    100036: tailFront
-    100038: tailMid
-    100040: imagePlane1
-    100042: imagePlane2
-    400000: Back
-    400002: backLeftLeg
-    400004: backLeftPaw
-    400006: backRightLeg
-    400008: backRightPaw
-    400010: BODY
-    400012: //RootNode
-    400014: HEAD
-    400016: LeftBottomEar
-    400018: leftFrontPaw
-    400020: leftFrontShoulder
-    400022: LeftTopEar
-    400024: polySurface4
-    400026: RightBottomEar
-    400028: rightFrontPaw
-    400030: rightFrontShoulder
-    400032: RightTopEar
-    400034: tailEnd
-    400036: tailFront
-    400038: tailMid
-    400040: imagePlane1
-    400042: imagePlane2
-    2300000: polySurface4
-    3300000: polySurface4
-    4300000: polySurface4
-    6400000: polySurface4
-    7400000: Take 001
+    100000: //RootNode
+    100002: pCylinder1
+    100004: pSphere1
+    400000: //RootNode
+    400002: pCylinder1
+    400004: pSphere1
+    2300000: pCylinder1
+    2300002: pSphere1
+    3300000: pCylinder1
+    3300002: pSphere1
+    4300000: pSphere1
+    4300002: pCylinder1
     9500000: //RootNode
-    13700000: polySurface4
   materials:
     importMaterials: 1
     materialName: 0
@@ -80,9 +42,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
