@@ -24,6 +24,9 @@ public class splineWalker : MonoBehaviour {
 
 	float goBackSleep = 0f;
 
+	public GameObject catMesh;
+	public GameObject catRun;
+
 	private void Update () {
 
 
@@ -39,6 +42,9 @@ public class splineWalker : MonoBehaviour {
 
 		if (sleeping){
 
+			catMesh.SetActive(true);
+			catRun.SetActive(false);
+
 			if(Vector3.Distance(transform.position,sleepingPos) >= 0.5f){
 				
 				transform.LookAt(sleepingPos);
@@ -48,7 +54,7 @@ public class splineWalker : MonoBehaviour {
 			else{
 
 				transform.position = sleepingPos;
-				transform.eulerAngles = Vector3.zero;
+				transform.eulerAngles = new Vector3(0f,90f,0f);
 
 			}
 
@@ -64,6 +70,9 @@ public class splineWalker : MonoBehaviour {
 
 
 		else{
+
+			catMesh.SetActive(false);
+			catRun.SetActive(true);
 
 			progress += Time.deltaTime / duration;
 			if (progress > 1f) {
