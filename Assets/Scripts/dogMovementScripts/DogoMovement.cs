@@ -25,14 +25,7 @@ public class DogoMovement : MonoBehaviour {
 	private bool leftTurn3 = false;
 	private bool rightTurn3 = false;
 */
-	public bool knifePickup = false;
 
-	public GameObject headknife;
-	public GameObject ZoneKnife;
-
-	public float knifetime = 60f;
-	public float knifefulltime;
-	public float knifepass;
 
 	public Transform Head;
 
@@ -44,8 +37,6 @@ public class DogoMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		headknife.SetActive (false);
-		knifefulltime = knifetime;
 		chrctrl = GetComponent<CharacterController> ();
 
 
@@ -53,28 +44,7 @@ public class DogoMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-
-
-		if (knifePickup){
-			headknife.SetActive (true);
-			knifetime -= Time.deltaTime;
-			knifepass = knifefulltime - knifetime;
-			verticalSpeed += (knifepass / 100f);
-			horizontalSpeed += (knifepass / 100f);
-			rotateSpeed += (knifepass / 130f);
-			if(verticalSpeed > 27f){
-				verticalSpeed = 27f;
-			}
-			if(horizontalSpeed > 25f){
-				horizontalSpeed = 25f;
-			}
-			if(rotateSpeed > 6f){
-				rotateSpeed = 6f;
-			}
-		}
-			
-
+		
 		if ( Input.GetMouseButton(0) ) {
 			Cursor.lockState = CursorLockMode.Locked; // lock cursor always in middle of screen
 			Cursor.visible = false; // turn cursor invisible
@@ -85,7 +55,7 @@ public class DogoMovement : MonoBehaviour {
 
 		chrctrl.Move (transform.TransformDirection ( new Vector3(0f, 0f, vertical * Time.deltaTime * verticalSpeed)));
 
-		if(Input.GetKey (KeyCode.LeftShift)){
+		/* if(Input.GetKey (KeyCode.LeftShift)){
 			if (knifePickup) {
 				verticalSpeed += 1f;
 				//horizontalSpeed += 1f;
@@ -110,7 +80,7 @@ public class DogoMovement : MonoBehaviour {
 				rotateSpeed = 0.2f;
 			}
 
-		}
+		} */
 
 		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
 		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * headRotateSpeed; // vertical mouseSpeed
@@ -212,11 +182,5 @@ public class DogoMovement : MonoBehaviour {
 
 
 	}
-	void OnTriggerEnter(Collider other){
 
-		if(other.gameObject == ZoneKnife){
-			knifePickup = true;
-			Destroy (other.gameObject);
-			}
-	}
 }
