@@ -85,9 +85,13 @@ public class DogoMovement : MonoBehaviour {
 		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
 		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * headRotateSpeed; // vertical mouseSpeed
 
+		float horiz = Input.GetAxis("Horizontal") * Time.deltaTime * headRotateSpeed;
+
 //		Debug.Log ("mousex" + mouseX.ToString());
 //		Debug.Log ("mouseY" + mouseY.ToString());
 		leftRightLook += mouseX;
+
+		//leftRightLook += horiz;
 
 		/*
 		if (leftRightLook > (rotateThreshold)) {
@@ -131,6 +135,7 @@ public class DogoMovement : MonoBehaviour {
 		}
 			*/
 		//if (Input.GetKey (KeyCode.W)) {
+
 		if (leftRightLook < 15f && leftRightLook > -15f) {
 			
 			transform.localEulerAngles += Vector3.zero;
@@ -139,6 +144,7 @@ public class DogoMovement : MonoBehaviour {
 			transform.localEulerAngles += new Vector3 (0f, leftRightLook * Time.deltaTime * 1f, 0f);
 		}
 		//}
+
 
 		/*if (rightTurn1){
 			transform.localEulerAngles += new Vector3( 0f, 90f * Time.deltaTime * rotateSpeed * 1.33f, 0f );

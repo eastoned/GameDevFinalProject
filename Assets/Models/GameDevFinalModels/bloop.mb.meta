@@ -1,77 +1,15 @@
 fileFormatVersion: 2
-guid: 687ecfd9b3262435e8f117e1ae41f83f
-timeCreated: 1491940263
+guid: 93129702b9e004c02991ed0e3aeb1bc7
+timeCreated: 1493507828
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCone1
-    100004: pCone2
-    100006: pCone3
-    100008: pCube27
-    100010: pCube28
-    100012: pCube29
-    100014: pCube30
-    100016: pCube31
-    100018: pSphere1
-    100020: pSphere2
-    100022: transform1
-    100024: transform2
-    100026: transform3
-    100028: transform4
-    100030: transform5
-    100032: group
-    100034: pasted__pCube30
-    100036: pasted__pCube31
-    100038: pasted__pCube32
     400000: //RootNode
-    400002: pCone1
-    400004: pCone2
-    400006: pCone3
-    400008: pCube27
-    400010: pCube28
-    400012: pCube29
-    400014: pCube30
-    400016: pCube31
-    400018: pSphere1
-    400020: pSphere2
-    400022: transform1
-    400024: transform2
-    400026: transform3
-    400028: transform4
-    400030: transform5
-    400032: group
-    400034: pasted__pCube30
-    400036: pasted__pCube31
-    400038: pasted__pCube32
     2300000: //RootNode
-    2300002: pCone3
-    2300004: pCube30
-    2300006: pCube31
-    2300008: pSphere1
-    2300010: pSphere2
-    2300012: pasted__pCube30
-    2300014: pasted__pCube31
-    2300016: pasted__pCube32
     3300000: //RootNode
-    3300002: pCone3
-    3300004: pCube30
-    3300006: pCube31
-    3300008: pSphere1
-    3300010: pSphere2
-    3300012: pasted__pCube30
-    3300014: pasted__pCube31
-    3300016: pasted__pCube32
-    4300000: pCube27
-    4300002: pCube30
-    4300004: pCube31
-    4300006: pSphere1
-    4300008: pSphere2
-    4300010: pCone3
-    4300012: pasted__pCube30
-    4300014: pasted__pCube31
-    4300016: pasted__pCube32
+    4300000: pSphere1
     9500000: //RootNode
   materials:
     importMaterials: 1
