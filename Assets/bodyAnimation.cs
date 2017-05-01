@@ -7,6 +7,8 @@ public class bodyAnimation : MonoBehaviour {
 	public GameObject backrightLeg;
 	public GameObject frontleftLeg;
 	public GameObject frontrightLeg;
+	new Vector3 tempLeft;
+	new Vector3 tempRight;
 	float walkValue = 0;
 
 	// Use this for initialization
@@ -14,13 +16,22 @@ public class bodyAnimation : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frame	
 	void Update () {
-		frontleftLeg.transform.Rotate (0, 0, walkValue);
-		frontrightLeg.transform.Rotate (0, 0, -walkValue);
-		if (Input.GetKey(KeyCode.W)) {
-			walkValue = Mathf.PingPong (walkValue * Time.deltaTime, 2);
+		tempLeft = frontleftLeg.transform.localEulerAngles;
+		tempRight = frontrightLeg.transform.localEulerAngles;
 
+		tempLeft.z = walkValue;
+		tempRight.z = -walkValue;
+
+		frontleftLeg.transform.localEulerAngles = tempLeft;
+		frontrightLeg.transform.localEulerAngles = tempRight;
+
+		if (Input.GetKey(KeyCode.W)) {
+			walkValue = 10 * Mathf.Sin(Time.time * 10f);
+		}
+		if (Input.GetKeyUp(KeyCode.W)) {
+			walkValue = 0;
 		}
 
 	}
