@@ -40,8 +40,9 @@ public class cameraStateChange : MonoBehaviour {
 
 		if(resetLerpVal){
 			lerpValPos = 0;
+			resetLerpVal = false;
 		}
-
+		Debug.Log(lerpValPos);
 
 		shakeStrength = Mathf.Lerp (shakeStrength, 0f, Time.deltaTime * 5f);
 	}
