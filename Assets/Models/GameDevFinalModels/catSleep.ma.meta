@@ -22,9 +22,11 @@ ModelImporter:
     2300000: pCylinder1
     2300002: pSphere1
     2300004: pSphere3
+    2300006: //RootNode
     3300000: pCylinder1
     3300002: pSphere1
     3300004: pSphere3
+    3300006: //RootNode
     4300000: pSphere1
     4300002: pCylinder1
     4300004: pSphere3
