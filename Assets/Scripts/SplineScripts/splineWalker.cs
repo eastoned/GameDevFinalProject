@@ -5,7 +5,7 @@ using UnityEngine;
 public class splineWalker : MonoBehaviour {
 
 
-	public BezierSpline spline;
+	public BezierSpline spline, spline2, spline3;
 
 	public float duration;
 
@@ -18,7 +18,10 @@ public class splineWalker : MonoBehaviour {
 	public bool attackNow;
 	public bool sleeping;
 
-	public Vector3 sleepingPos;
+	Vector3 sleepingPos;
+	public Vector3 hidePos1, hidePos2, hidePos3;
+	int randVal;
+	bool assignRandVal = false;
 
 	float lerpVal;
 
@@ -27,14 +30,35 @@ public class splineWalker : MonoBehaviour {
 	public GameObject catMesh;
 	public GameObject catRun;
 
+	void Start (){
+
+		sleepingPos = hidePos1;
+
+
+	}
+
 	private void Update () {
+
+		if(randVal == 1){
+			sleepingPos = hidePos1;
+		}
+		if(randVal == 2){
+			sleepingPos = hidePos2;
+		}
+		if(randVal == 3){
+			sleepingPos = hidePos3;
+		}
+
+		if(assignRandVal){
+			randVal = Random.Range(1,3);
+			assignRandVal = false;
+		}
 
 
 		if(attackNow){
 			
 			transform.LookAt(TargObj);
 			transform.Translate(Vector3.forward * Time.deltaTime * 20f);
-
 
 			lerpVal = 0f;
 		}
@@ -48,7 +72,7 @@ public class splineWalker : MonoBehaviour {
 			if(Vector3.Distance(transform.position,sleepingPos) >= 0.5f){
 				
 				transform.LookAt(sleepingPos);
-				transform.Translate(Vector3.forward * Time.deltaTime * 5f);
+				transform.Translate(Vector3.forward * Time.deltaTime * 40f);
 
 			} 
 			else{
@@ -59,9 +83,10 @@ public class splineWalker : MonoBehaviour {
 			}
 
 
-			if(Vector3.Distance(TargObj.position,sleepingPos) <= 10){
+			if(Vector3.Distance(TargObj.position,sleepingPos) <= 15){
 
 				sleeping = false;
+				goBackSleep = 0f;
 				
 			}
 		}
@@ -90,14 +115,17 @@ public class splineWalker : MonoBehaviour {
 
 		
 			goBackSleep += Time.deltaTime / (duration * 5);
-			if (goBackSleep > 1f) {
+			if (goBackSleep >= 1f) {
 				sleeping = true;
+				assignRandVal = true;
+
 			}
 
-//			Debug.Log(goBackSleep);
-		}
 
-//		Debug.Log(lerpVal);
+		}
+//		Debug.Log(randVal);
+	
+
 
 	}
 
