@@ -21,6 +21,8 @@ public class dogActions : MonoBehaviour {
 	Vector3 axisRandomMov;
 	float  speedRandomMov;
 
+	bool setRandomMov = true;
+
 	// Use this for initialization
 	void Start () {
 
@@ -29,8 +31,8 @@ public class dogActions : MonoBehaviour {
 		camOriginalPos = mainCam.transform.localPosition;
 		camOriginalRot = mainCam.transform.localRotation;
 
-		axisRandomMov = new Vector3(Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f));
-		speedRandomMov = Random.Range(0.001f,0.003f);
+//		axisRandomMov = new Vector3(Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f));
+//		speedRandomMov = Random.Range(0.001f,0.003f);
 
 
 		
@@ -38,7 +40,8 @@ public class dogActions : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+
 	
 
 		timeToSit += Time.deltaTime;
@@ -57,75 +60,40 @@ public class dogActions : MonoBehaviour {
 		if(timeToSit >= idleTimeToSit){
 
 			sitDown();
-			//lerpValPos += 0.1f * Time.deltaTime;
+			lerpValPos += Time.deltaTime/4f;
+			setRandomMov = true;
 
 
 		} else {
-			lerpValPos += 0.1f * Time.deltaTime;
+			if(lerpValPos >=1f){
+				lerpValPos = 0f;
+			}
+			lerpValPos += Time.deltaTime/1f;
 
 			mainCam.transform.localPosition = Vector3.Lerp(mainCam.transform.localPosition, camOriginalPos,  lerpValPos);
 			//mainCam.transform.localEulerAngles = Vector3.Lerp(mainCam.transform.localEulerAngles, Vector3.zero, lerpValPos);
 			mainCam.transform.localRotation = Quaternion.Slerp(mainCam.transform.localRotation, camOriginalRot,lerpValPos);
 
-
-			//Quaternion.Euler(Vector3.Lerp(mainCam.transform.localEulerAngles, Vector3.zero, lerpValPos));
-			
-
-//			mainCam.transform.localPosition = camOriginalPos;
-//			mainCam.transform.localEulerAngles = Vector3.zero;
-
-			//lerpValPos += 0.01f * Time.deltaTime;
-			
 		}
 
-		
+		if(setRandomMov){
+			axisRandomMov = new Vector3(Random.Range(-1.0f,0.4f),Random.Range(-1.0f,1.0f),0f);
+			setRandomMov = false;
+		}
 	}
 
 
 	void sitDown(){
-		
 
-//		if(lerpValPos <= 0.4f){
-//
-//			mainCam.transform.localPosition = Vector3.Lerp(mainCam.transform.localPosition, 
-//				new Vector3(mainCam.transform.localPosition.x,1.3f,mainCam.transform.localPosition.z),lerpValPos);
-//
-//			mainCam.transform.localEulerAngles = Vector3.Lerp(mainCam.transform.localEulerAngles, 
-//				new Vector3(33f,mainCam.transform.localEulerAngles.y,mainCam.transform.localEulerAngles.z),lerpValPos);
-//		
-//		} 
-//
-////		if(mainCam.transform.localPosition.y <= 1.3f){
-////
-////			mainCam.transform.localPosition += new Vector3(0f,0.5f * Time.deltaTime, 0f);
-////			mainCam.transform.localEulerAngles += new Vector3 (0.5f * Time.deltaTime, 0f, 0f);
-////
-////		}
-//		else {
+		mainCam.transform.localPosition = Vector3.Lerp(camOriginalPos,new Vector3(camOriginalPos.x, -12f, camOriginalPos.z),lerpValPos);
+		mainCam.transform.localEulerAngles += axisRandomMov * 1.25f * Time.deltaTime;
 
-			counterRandomMov+= Time.deltaTime;
-			if(counterRandomMov >= 10){
+		counterRandomMov+= Time.deltaTime;
+		if(counterRandomMov >= 7f){
+			setRandomMov = true;
+			counterRandomMov = 0f;
+		}
 
-				if(mainCam.transform.localPosition.y <= 0.4f){
-					axisRandomMov = new Vector3(Random.Range(-1.0f,1.0f),Random.Range(0.0f,1.0f),Random.Range(-1.0f,1.0f));
-				} else{
-					axisRandomMov = new Vector3(Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f),Random.Range(-1.0f,1.0f));
-				}
-
-				speedRandomMov = Random.Range(0.0001f,0.001f);
-
-				counterRandomMov = 0f;
-
-			}
-			//mainCam.transform.RotateAround(dogoNeck.transform.localPosition, axisRandomMov, 0.0005f);
-			mainCam.transform.localEulerAngles += axisRandomMov * 0.1f;
-
-			Debug.Log(axisRandomMov);
-			
-
-		
-
-		//}
 
 
 
