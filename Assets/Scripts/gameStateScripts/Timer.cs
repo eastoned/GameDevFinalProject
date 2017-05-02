@@ -56,20 +56,16 @@ public class Timer : MonoBehaviour {
 			if (dogKnife.knifetime <= dogKnife.knifefulltime/2f){
 				if (dogKnife.knifepass >= dogKnife.knifefulltime){
 					worldstate = 3;
-					Debug.Log (worldstate);
 				}
 				else{
 					worldstate = 2;
-					Debug.Log (worldstate);
 				}
 			}else{
 				worldstate = 1;
-				Debug.Log (worldstate);
 			}
 		}
 		else{
 			worldstate = 0;
-			Debug.Log (worldstate);
 		}
 	}
 }
