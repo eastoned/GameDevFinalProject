@@ -7,6 +7,9 @@ public class cameraStateChange : MonoBehaviour {
 	public float shakeStrength;
 	Vector3 startPosition;
 
+	float lerpValPos;
+	bool resetLerpVal = false;
+
 	void Start(){
 		thisCam = GetComponent<Camera> ();
 
@@ -14,18 +17,29 @@ public class cameraStateChange : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		lerpValPos += Time.deltaTime/3f;
+
 		if (Timer.worldstate == 0) {
-			thisCam.fieldOfView = 60;
+			resetLerpVal = true;
+			thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, 60, lerpValPos);
 			shakeStrength = 0;
 		} else if (Timer.worldstate == 1) {
-			thisCam.fieldOfView = 75;
+			resetLerpVal = true;
+			thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, 75, lerpValPos);
 			shakeStrength = 3;
 		} else if (Timer.worldstate == 2) {
-			thisCam.fieldOfView = 90;
+			resetLerpVal = true;
+			thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, 90, lerpValPos);
 			shakeStrength = 7;
 		} else if (Timer.worldstate == 3) {
-			thisCam.fieldOfView = 130;
+			resetLerpVal = true;
+			thisCam.fieldOfView = Mathf.Lerp(thisCam.fieldOfView, 130, lerpValPos);
 			shakeStrength = 15;
+		}
+
+		if(resetLerpVal){
+			lerpValPos = 0;
 		}
 
 
