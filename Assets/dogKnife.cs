@@ -27,6 +27,7 @@ public class dogKnife : MonoBehaviour {
 			//verticalSpeed += (knifepass / 100f);
 			//horizontalSpeed += (knifepass / 100f);
 			//rotateSpeed += (knifepass / 130f);
+			Debug.Log(knifepass);
 		}
 	}
 	void OnTriggerEnter(Collider other){
