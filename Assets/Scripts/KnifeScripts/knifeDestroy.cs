@@ -9,6 +9,7 @@ public class knifeDestroy : MonoBehaviour {
 	private int counter2= 0;
 	public GameObject Crumb;
 	public GameObject smallBall;
+	public GameObject dogo;
 
 	// Use this for initialization
 	void Start () {
@@ -22,16 +23,19 @@ public class knifeDestroy : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 
-		///Debug.Log (other.gameObject.layer);
-		if (other.gameObject.layer == 8) {
-			if (counter1 < 3) {
-				counter1++;
-			} else {
-				Destroy (other.gameObject);
-				counter1 = 0;
-				Instantiate (Crumb, other.transform.position, other.transform.rotation);
+		if (other.gameObject.name != "Dogo" && other.gameObject != dogo) {
+			
+		
+			///Debug.Log (other.gameObject.layer);
+			if (other.gameObject.layer == 8) {
+				if (counter1 < 3) {
+					counter1++;
+				} else {
+					Destroy (other.gameObject);
+					counter1 = 0;
+					Instantiate (Crumb, other.transform.position, other.transform.rotation);
+				}
 			}
-		}
 
 			if (other.gameObject.layer == 9) {
 				if (counter2 < 3) {
@@ -45,5 +49,6 @@ public class knifeDestroy : MonoBehaviour {
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 				}
 			}
+		}
 	}
 }
