@@ -21,11 +21,6 @@ public class DogSounds : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		time -= Time.deltaTime;
-<<<<<<< Temporary merge branch 1
-		//Debug.Log (time);
-=======
-//		Debug.Log (time);
->>>>>>> Temporary merge branch 2
 		if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.S)) { //if your are moving
 			if (dogWalkingSound.isPlaying == false) {
 				dogWalkingSound.Play (); //play walking sound
@@ -44,5 +39,3 @@ public class DogSounds : MonoBehaviour {
 		}
 	}
 }
-
-
