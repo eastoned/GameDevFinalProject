@@ -6,10 +6,102 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: group
+    100004: group1
+    100006: pasted__pCube2
+    100008: pasted__pCylinder4
+    100010: pCube1
+    100012: pCube2
+    100014: pCube3
+    100016: pCylinder3
+    100018: pCylinder4
+    100020: pCylinder5
+    100022: pCylinder6
+    100024: pCylinder7
+    100026: polySurface1
+    100028: polySurface1 1
+    100030: polySurface2
+    100032: polySurface2 1
+    100034: polySurface3
+    100036: polySurface4
+    100038: polySurface5
+    100040: pSphere1
+    100042: pTorus1
+    100044: pTorus2
+    100046: pTorus3
+    100048: transform1
+    100050: transform10
+    100052: transform11
+    100054: transform12
+    100056: transform13
+    100058: transform14
+    100060: transform15
+    100062: transform16
+    100064: transform17
+    100066: transform2
+    100068: transform3
+    100070: transform4
+    100072: transform5
+    100074: transform6
+    100076: transform7
+    100078: transform8
+    100080: transform9
     400000: //RootNode
+    400002: group
+    400004: group1
+    400006: pasted__pCube2
+    400008: pasted__pCylinder4
+    400010: pCube1
+    400012: pCube2
+    400014: pCube3
+    400016: pCylinder3
+    400018: pCylinder4
+    400020: pCylinder5
+    400022: pCylinder6
+    400024: pCylinder7
+    400026: polySurface1
+    400028: polySurface1 1
+    400030: polySurface2
+    400032: polySurface2 1
+    400034: polySurface3
+    400036: polySurface4
+    400038: polySurface5
+    400040: pSphere1
+    400042: pTorus1
+    400044: pTorus2
+    400046: pTorus3
+    400048: transform1
+    400050: transform10
+    400052: transform11
+    400054: transform12
+    400056: transform13
+    400058: transform14
+    400060: transform15
+    400062: transform16
+    400064: transform17
+    400066: transform2
+    400068: transform3
+    400070: transform4
+    400072: transform5
+    400074: transform6
+    400076: transform7
+    400078: transform8
+    400080: transform9
     2300000: //RootNode
+    2300002: pCube2
+    2300004: pCylinder7
+    2300006: polySurface2
+    2300008: pTorus3
     3300000: //RootNode
+    3300002: pCube2
+    3300004: pCylinder7
+    3300006: polySurface2
+    3300008: pTorus3
     4300000: pCylinder3
+    4300002: pTorus3
+    4300004: pCube2
+    4300006: polySurface2
+    4300008: pCylinder7
     9500000: //RootNode
   materials:
     importMaterials: 1

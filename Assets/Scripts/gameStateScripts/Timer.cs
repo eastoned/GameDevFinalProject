@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer : MonoBehaviour {
-
+	//declares total time left in game
 	public float timeleft = 120f;
+	//sets state of world
 	public static int worldstate;
-	public GameObject x;
+
+	//public GameObject x;
 
 	public static bool gameOver = false;
 
-	DogoMovement dogomovement;
+	//DogoMovement dogomovement;
 
 	// Use this for initialization
 	void Start () {
-		dogomovement = x.GetComponent<DogoMovement> ();
+		//dogomovement = x.GetComponent<DogoMovement> ();
 		worldstate = 0;
 	}
 	
@@ -23,14 +25,14 @@ public class Timer : MonoBehaviour {
 
 		worldstateUpdate ();
 
-		if (dogomovement.knifePickup) 
+		if (dogKnife.knifePickup) 
 		{
 //			Debug.Log ("pickup");
-			if (timeleft < dogomovement.knifetime){
-				timeleft += (dogomovement.knifetime - timeleft);
+			if (timeleft < dogKnife.knifetime){
+				timeleft += (dogKnife.knifetime - timeleft);
 			}
-			else if(timeleft > dogomovement.knifetime){
-				timeleft -= (timeleft - dogomovement.knifetime);
+			else if(timeleft > dogKnife.knifetime){
+				timeleft -= (timeleft - dogKnife.knifetime);
 			}
 			timeleft -= Time.deltaTime;
 //			Debug.Log(timeleft);
@@ -50,9 +52,9 @@ public class Timer : MonoBehaviour {
 	}
 
 	void worldstateUpdate(){
-		if (dogomovement.knifePickup){
-			if (dogomovement.knifetime <= dogomovement.knifefulltime/2f){
-				if (dogomovement.knifepass >= dogomovement.knifefulltime){
+		if (dogKnife.knifePickup){
+			if (dogKnife.knifetime <= dogKnife.knifefulltime/2f){
+				if (dogKnife.knifepass >= dogKnife.knifefulltime){
 					worldstate = 3;
 					Debug.Log (worldstate);
 				}
