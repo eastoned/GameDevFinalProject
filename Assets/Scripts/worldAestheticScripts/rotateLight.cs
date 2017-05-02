@@ -5,6 +5,7 @@ using UnityEngine;
 public class rotateLight : MonoBehaviour {
 	private Transform lightRotation;
 	public Light changeBrightness;
+	public Material changelightColor;
 	void Start(){
 		lightRotation = GetComponent<Transform>();
 
@@ -17,8 +18,8 @@ public class rotateLight : MonoBehaviour {
 		lightDecrease = changeBrightness.color.g;
 		lightIncrease = changeBrightness.color.b;
 		lightDecrease -= Time.deltaTime * .01f;
-		lightIncrease += Time.deltaTime * .01f;
+		lightIncrease += Time.deltaTime * .0025f;
 		changeBrightness.color = new Color(changeBrightness.color.r, lightDecrease, lightIncrease);
-
+		changelightColor.SetColor ("_TintColor", changeBrightness.color);
 	}
 }
