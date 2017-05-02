@@ -23,11 +23,14 @@ public class knifeDestroy : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 
-		if (other.gameObject.name != "Dogo" && other.gameObject != dogo) {
+		Debug.Log ("Contact" + other);
+
+
 			
 		
 			///Debug.Log (other.gameObject.layer);
 			if (other.gameObject.layer == 8) {
+//			if (other.gameObject.name != "Dogo" && other.gameObject != dogo) {
 				if (counter1 < 3) {
 					counter1++;
 				} else {
@@ -35,6 +38,7 @@ public class knifeDestroy : MonoBehaviour {
 					counter1 = 0;
 					Instantiate (Crumb, other.transform.position, other.transform.rotation);
 				}
+//			}
 			}
 
 			if (other.gameObject.layer == 9) {
@@ -49,6 +53,6 @@ public class knifeDestroy : MonoBehaviour {
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 				}
 			}
-		}
+
 	}
 }
