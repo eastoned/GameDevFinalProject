@@ -8,7 +8,9 @@ public class knifeDestroy : MonoBehaviour {
 	private int counter2= 0;
 	public GameObject Crumb;
 	public GameObject smallBall;
-	public GameObject dogo;
+	public GameObject dogo;
+
+	public GameObject destParticle;
 	// Use this for initialization	void Start () {
 		}
 	// Update is called once per frame	void Update () {
@@ -18,7 +20,9 @@ public class knifeDestroy : MonoBehaviour {
 //			if (other.gameObject.name != "Dogo" && other.gameObject != dogo) {
 			if (counter1 < 3) {				counter1++;
 			} else {				Destroy (other.gameObject);
-				counter1 = 0;				Instantiate (Crumb, other.transform.position, other.transform.rotation);			}		}
+				counter1 = 0;				Instantiate (Crumb, other.transform.position, other.transform.rotation);
+				Instantiate (destParticle, other.transform.position, other.transform.rotation);
+			}		}
 //			}
 			if (other.gameObject.layer == 9) {
 				if (counter2 < 3) {
