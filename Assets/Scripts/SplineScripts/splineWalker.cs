@@ -30,6 +30,11 @@ public class splineWalker : MonoBehaviour {
 	public GameObject catMesh;
 	public GameObject catRun;
 
+	public GameObject catPurrSound, catRunSound, catAngry;
+	//bool purrOn, runOn = false;
+
+
+
 	void Start (){
 
 		sleepingPos = hidePos1;
@@ -69,6 +74,11 @@ public class splineWalker : MonoBehaviour {
 			catMesh.SetActive(true);
 			catRun.SetActive(false);
 
+			catPurrSound.SetActive (true);
+			catRunSound.SetActive (false);
+			catAngry.SetActive(false);
+
+
 			if(Vector3.Distance(transform.position,sleepingPos) >= 0.5f){
 				
 				transform.LookAt(sleepingPos);
@@ -89,15 +99,17 @@ public class splineWalker : MonoBehaviour {
 				goBackSleep = 0f;
 				
 			}
-		}
-
-	
-
-
-		else{
+		}else{
 
 			catMesh.SetActive(false);
 			catRun.SetActive(true);
+
+
+			catPurrSound.SetActive (false);
+			catRunSound.SetActive (true);
+			catAngry.SetActive(true);
+
+
 
 			progress += Time.deltaTime / duration;
 			if (progress > 1f) {
