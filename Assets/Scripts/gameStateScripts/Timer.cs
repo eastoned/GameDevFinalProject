@@ -46,6 +46,7 @@ public class Timer : MonoBehaviour {
 
 		if (timeleft <= 0) {
 			gameOver = true;
+			Debug.Log (gameOver);
 		}
 
 		
