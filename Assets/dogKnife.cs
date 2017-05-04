@@ -7,6 +7,7 @@ public class dogKnife : MonoBehaviour {
 
 	public GameObject headknife;
 	public GameObject ZoneKnife;
+	public GameObject knifePickUpSound;
 
 	public static float knifetime = 60f;
 	public static float knifefulltime;
@@ -34,6 +35,7 @@ public class dogKnife : MonoBehaviour {
 		if(other.gameObject == ZoneKnife){
 			knifePickup = true;
 			Destroy (other.gameObject);
+			knifePickUpSound.SetActive (true);
 		}
 	}
 }
