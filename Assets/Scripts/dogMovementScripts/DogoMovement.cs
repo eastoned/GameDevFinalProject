@@ -54,6 +54,7 @@ public class DogoMovement : MonoBehaviour {
 		float vertical = Input.GetAxis("Vertical"); // up/down movement
 
 		chrctrl.Move (transform.TransformDirection ( new Vector3(0f, 0f, vertical * Time.deltaTime * verticalSpeed)));
+		chrctrl.transform.Rotate (0f, horizontal * Time.deltaTime * rotateSpeed, 0f);
 
 		/* if(Input.GetKey (KeyCode.LeftShift)){
 			if (knifePickup) {
@@ -85,7 +86,7 @@ public class DogoMovement : MonoBehaviour {
 		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * headRotateSpeed; // horizontal mouseSpeed
 		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * headRotateSpeed; // vertical mouseSpeed
 
-		float horiz = Input.GetAxis("Horizontal") * Time.deltaTime * headRotateSpeed;
+//		float horiz = Input.GetAxis("Horizontal") * Time.deltaTime * headRotateSpeed;
 
 //		Debug.Log ("mousex" + mouseX.ToString());
 //		Debug.Log ("mouseY" + mouseY.ToString());
@@ -136,13 +137,20 @@ public class DogoMovement : MonoBehaviour {
 			*/
 		//if (Input.GetKey (KeyCode.W)) {
 
-		if (leftRightLook < 15f && leftRightLook > -15f) {
-			
-			transform.localEulerAngles += Vector3.zero;
-			
-		} else {
-			transform.localEulerAngles += new Vector3 (0f, leftRightLook * Time.deltaTime * 1f, 0f);
-		}
+//		if (Input.GetKey (KeyCode.A)){
+//			transform.Rotate (0f, horizontal * rotateSpeed * Time.deltaTime, 0f);
+//		}
+//		if (Input.GetKey (KeyCode.D)){
+//			transform.Rotate (0f, horizontal * rotateSpeed * Time.deltaTime, 0f);
+//		}
+
+//		if (leftRightLook < 15f && leftRightLook > -15f) {
+//			
+//			transform.localEulerAngles += Vector3.zero;
+//			
+//		} else {
+//			transform.localEulerAngles += new Vector3 (0f, leftRightLook * Time.deltaTime * 1f, 0f);
+//		}
 		//}
 
 
