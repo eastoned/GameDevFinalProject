@@ -69,6 +69,7 @@ public class knifeDestroy : MonoBehaviour {
 	public Collider knifeCol;
 	private int counter1 = 0;
 	private int counter2= 0;
+	public GameObject spark;
 	public GameObject Crumb;
 	public GameObject smallBall;
 	public GameObject dogo;
@@ -85,6 +86,7 @@ public class knifeDestroy : MonoBehaviour {
 		Debug.Log ("collision" + other);		if (other.gameObject.layer == 8) {
 //			if (other.gameObject.name != "Dogo" && other.gameObject != dogo) {
 			if (counter1 < 3) {				counter1++;
+				Instantiate (spark, other.transform.position, other.transform.rotation);
 				knifeWood.SetActive (true);
 			} else {				Destroy (other.gameObject);
 				counter1 = 0;				Instantiate (Crumb, other.transform.position, other.transform.rotation);
