@@ -18,7 +18,7 @@ public class bodyAnimation : MonoBehaviour {
 	float walkValue = 0;
 	float turnValue = 0;
 	float speed = 10f;
-	public bool awake = false;
+	public bool ownerHome = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -26,17 +26,14 @@ public class bodyAnimation : MonoBehaviour {
 	
 	// Update is called once per frame	
 	void Update () {
-		if (!awake) {
+		if (ownerHome) {
 			
-			if (Input.anyKeyDown || Input.GetAxis ("Mouse X") != 0 || Input.GetAxis ("Mouse Y") != 0) {
-				awake = true;
-			}
+
 
 		}
-		Debug.Log (Input.GetAxis ("Mouse X"));
-		if (awake) {
+		if (!ownerHome) {
 			
-			body.transform.localPosition = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y - ((walkValue)/500), this.transform.localPosition.z);
+			body.transform.localPosition = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y + ((walkValue)/700), this.transform.localPosition.z);
 
 
 
@@ -75,6 +72,12 @@ public class bodyAnimation : MonoBehaviour {
 			}
 			if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D)) {
 				turnValue =  10 * Mathf.Sin (Time.time * speed);
+			}
+			if (Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.D)) {
+				turnValue = 0;
+			}
+			if (Timer.gameOver) {
+				ownerHome = true;
 			}
 		}
 	}
