@@ -65,7 +65,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class knifeDestroy : MonoBehaviour {
+public class knifeDestroy : MonoBehaviour {
+	private int globalcounter = 0;
+
 	public Collider knifeCol;
 	private int counter1 = 0;
 	private int counter2= 0;
@@ -90,6 +92,7 @@ public class knifeDestroy : MonoBehaviour {
 				Instantiate (spark, other.transform.position, other.transform.rotation);
 
 			} else {				Destroy (other.gameObject);
+				globalcounter += 1;
 				counter1 = 0;				Instantiate (Crumb, other.transform.position, other.transform.rotation);
 				Instantiate (destParticle, other.transform.position, other.transform.rotation);
 			}		}
@@ -101,6 +104,7 @@ public class knifeDestroy : MonoBehaviour {
 
 				} else {
 					Destroy (other.gameObject);
+					globalcounter += 1;
 					counter2 = 0;
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);

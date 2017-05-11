@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DogoMovement : MonoBehaviour {
 	//forwardspeed
-	public float verticalSpeed = 6f;
+	public float verticalSpeed = 7f;
 	//leftandright rotation
 	public float rotateSpeed = 90f;
 
@@ -38,7 +38,8 @@ public class DogoMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		chrctrl = GetComponent<CharacterController> ();
-
+		verticalSpeed = 7f;
+		rotateSpeed = 90f;
 
 	}
 
