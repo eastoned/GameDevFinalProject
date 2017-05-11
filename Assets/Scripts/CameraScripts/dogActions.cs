@@ -45,7 +45,7 @@ public class dogActions : MonoBehaviour {
 	
 
 		timeToSit += Time.deltaTime;
-		Debug.Log(lerpValPos);
+		//Debug.Log(lerpValPos);
 
 		if (timeToSit >= idleTimeToSit - 0.5f && timeToSit <= idleTimeToSit - 0.1f){
 			lerpValPos = 0f;
