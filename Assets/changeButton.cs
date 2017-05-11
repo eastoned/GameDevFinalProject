@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class changeButton : MonoBehaviour {
 	private Text myText;
 	public float timerText;
-	public float speed = 2;
+	public float speed = 1;
 	// Use this for initialization
 	void Start () {
 		myText = this.GetComponent<Text>();
