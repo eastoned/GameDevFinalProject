@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6f0fad96415de49868abed3f92010633
+timeCreated: 1494522079
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Watchword Hairline Demo
+  fontNames:
+  - Watchword Hairline Demo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

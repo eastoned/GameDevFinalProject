@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
+
 
 public class DogSounds : MonoBehaviour {
 
 	private float time = 5.0f;
+
 	public AudioClip dogPanting;
 	public AudioClip dogWalking;
+
+
 	AudioSource dogWalkingSound;
 	AudioSource dogPantingSound;
 	// Use this for initialization
@@ -31,7 +34,7 @@ public class DogSounds : MonoBehaviour {
 
 		if (time <= -7.0f) {
 			if (dogPantingSound.isPlaying == false) {
-				time = 20.0f;
+				time = 15.0f;
 				dogPantingSound.Play ();
 			} else {
 				dogPantingSound.Stop ();
