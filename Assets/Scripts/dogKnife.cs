@@ -18,6 +18,7 @@ public class dogKnife : MonoBehaviour {
 		knifetime = 90f;
 		headknife.SetActive (false);
 		knifefulltime = knifetime;
+		knifePickUpSound.SetActive (false);
 	}
 	
 	// Update is called once per frame
