@@ -9,14 +9,16 @@ public class dogKnife : MonoBehaviour {
 	public GameObject ZoneKnife;
 	public GameObject knifePickUpSound;
 
-	public static float knifetime = 60f;
+	public static float knifetime = 90f;
 	public static float knifefulltime;
 	public static float knifepass;
 
 	// Use this for initialization
 	void Start () {
+		knifetime = 90f;
 		headknife.SetActive (false);
 		knifefulltime = knifetime;
+		knifePickUpSound.SetActive (false);
 	}
 	
 	// Update is called once per frame

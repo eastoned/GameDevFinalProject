@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class houseInterior : MonoBehaviour {
-
+public class rotateHand : MonoBehaviour {
+	public GameObject clockFace;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +11,6 @@ public class houseInterior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		this.transform.RotateAround (clockFace.transform.position, new Vector3(1.0f, 0.0f, 0.0f), 1 * Time.deltaTime);
 	}
 }

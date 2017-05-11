@@ -28,12 +28,12 @@ public class Timer : MonoBehaviour {
 		if (dogKnife.knifePickup) 
 		{
 //			Debug.Log ("pickup");
-			if (timeleft < dogKnife.knifetime){
-				timeleft += (dogKnife.knifetime - timeleft);
-			}
-			else if(timeleft > dogKnife.knifetime){
-				timeleft -= (timeleft - dogKnife.knifetime);
-			}
+//			if (timeleft < dogKnife.knifetime){
+//				timeleft += (dogKnife.knifetime - timeleft);
+//			}
+//			else if(timeleft > dogKnife.knifetime){
+//				timeleft -= (timeleft - dogKnife.knifetime);
+//			}
 			timeleft -= Time.deltaTime;
 //			Debug.Log(timeleft);
 
@@ -46,6 +46,7 @@ public class Timer : MonoBehaviour {
 
 		if (timeleft <= 0) {
 			gameOver = true;
+			Debug.Log (gameOver);
 		}
 
 		
