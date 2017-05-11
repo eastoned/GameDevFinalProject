@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class camActivate : MonoBehaviour {
 
-	Camera thisCam;
+	GameObject thisCam;
 
 	public GameObject dogo;
 
 	// Use this for initialization
 	void Start () {
 
-		thisCam = GetComponent<Camera>();
+		thisCam = transform.GetChild(0).gameObject;
 		
 	}
 	
@@ -24,7 +24,7 @@ public class camActivate : MonoBehaviour {
 
 		if(col.gameObject.layer == 10){
 		
-			thisCam.enabled = true;
+			thisCam.SetActive (true);
 		}
 
 //		if(col.gameObject == dogo){
@@ -37,7 +37,7 @@ public class camActivate : MonoBehaviour {
 
 		if(col.gameObject.layer == 10){
 
-			thisCam.enabled = false;
+			thisCam.SetActive(false);
 		}
 
 	}
