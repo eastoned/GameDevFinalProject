@@ -9,6 +9,8 @@ public class shiftLeftRight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = new Vector3 (.5f * Mathf.Sin(Time.time/10f), this.transform.position.y, this.transform.position.z);
+		this.transform.position = new Vector3 (-3f * Mathf.Abs(Mathf.Sin(Time.time/7f)), this.transform.position.y, this.transform.position.z);
+
+		this.transform.localScale = new Vector3 (1+ (.75f * Mathf.Abs (Mathf.Sin (Time.time / 7f))), 1 + (.75f * Mathf.Abs (Mathf.Sin (Time.time / 7f))), 1);
 	}
 }

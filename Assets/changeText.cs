@@ -17,15 +17,15 @@ public class changeText : MonoBehaviour {
 		timerText += Time.deltaTime;
 
 		if (timerText < 3) {
-			myText.text = "Sit";
-			myText.fontSize = 20;
+			myText.text = "SIT";
+			myText.fontSize = 30;
 			myText.font = regular;
 		} else if (timerText < 6) {
-			myText.text = "Stay";
-			myText.fontSize = 25;
+			myText.text = "STAY";
+			myText.fontSize = 35;
 		} else if (timerText < 9) {
 			myText.text = "S T A B";
-			myText.fontSize = 40;
+			myText.fontSize = 50;
 			myText.font = bold;
 		}
 
