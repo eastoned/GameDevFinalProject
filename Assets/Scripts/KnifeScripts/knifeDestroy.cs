@@ -65,7 +65,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class knifeDestroy : MonoBehaviour {
+public class knifeDestroy : MonoBehaviour {
+	private int globalcounter = 0;
+
 	public Collider knifeCol;
 	private int counter1 = 0;
 	private int counter2= 0;
@@ -84,30 +86,36 @@ public class knifeDestroy : MonoBehaviour {
 		}
 	void OnTriggerEnter(Collider other){
 		Debug.Log ("collision" + other);		if (other.gameObject.layer == 8) {
+			knifeWood.SetActive (true);
 //			if (other.gameObject.name != "Dogo" && other.gameObject != dogo) {
 			if (counter1 < 3) {				counter1++;
 				Instantiate (spark, other.transform.position, other.transform.rotation);
-				knifeWood.SetActive (true);
+
 			} else {				Destroy (other.gameObject);
+				globalcounter += 1;
 				counter1 = 0;				Instantiate (Crumb, other.transform.position, other.transform.rotation);
 				Instantiate (destParticle, other.transform.position, other.transform.rotation);
-				knifeWood.SetActive (false);
-			}		}
-//			}
-			if (other.gameObject.layer == 9) {
+			}		}
+		else if (other.gameObject.layer == 9) {
+				balloonPop.SetActive (true);
 				if (counter2 < 3) {
 					counter2++;
-				balloonPop.SetActive (false);
+					Instantiate (spark, other.transform.position, other.transform.rotation);
+
 				} else {
 					Destroy (other.gameObject);
+					globalcounter += 1;
 					counter2 = 0;
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
-				balloonPop.SetActive (true);
 				}
 			}
-		
 	}
+	void OnTriggerExit(Collider other){
+		balloonPop.SetActive (false);
+		knifeWood.SetActive (false);
+	}
+
 }
