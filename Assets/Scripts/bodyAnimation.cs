@@ -9,10 +9,10 @@ public class bodyAnimation : MonoBehaviour {
 	public GameObject frontrightLeg;
 	public GameObject headBob;
 
-	new Vector3 tempLeft;
-	new Vector3 tempRight;
-	new Vector3 tempbackLeft;
-	new Vector3 tempbackRight;
+	Vector3 tempLeft;
+	Vector3 tempRight;
+	Vector3 tempbackLeft;
+	Vector3 tempbackRight;
 	float walkValue = 0;
 	float speed = 10f;
 
