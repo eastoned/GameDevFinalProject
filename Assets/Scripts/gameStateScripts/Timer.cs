@@ -14,6 +14,8 @@ public class Timer : MonoBehaviour {
 
 	//DogoMovement dogomovement;
 
+	public GameObject ownerCam;
+
 	// Use this for initialization
 	void Start () {
 		//dogomovement = x.GetComponent<DogoMovement> ();
@@ -49,7 +51,10 @@ public class Timer : MonoBehaviour {
 			Debug.Log (gameOver);
 		}
 
-		
+		if(gameOver){
+
+			ownerCam.SetActive (true);
+		}
 	}
 
 	void worldstateUpdate(){
