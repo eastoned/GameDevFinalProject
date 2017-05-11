@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DogoMovement : MonoBehaviour {
 	//forwardspeed
-	public float verticalSpeed;
+	public float verticalSpeed = 6f;
 	//leftandright rotation
-	public float rotateSpeed;
+	public float rotateSpeed = 90f;
 
 	public float horizontalSpeed;
 
@@ -189,7 +189,7 @@ public class DogoMovement : MonoBehaviour {
 		//transform.Rotate( 0f, mouseX, 0f );
 
 		upDownLook -= mouseY; // minus-equals un-inverts the mouse-look-Y
-		upDownLook = Mathf.Clamp( upDownLook, -50f, 50f ); // constrain look 80 degrees up or down
+		upDownLook = Mathf.Clamp( upDownLook, -35f, 35f ); // constrain look 80 degrees up or down
 
 		Head.localEulerAngles = new Vector3(-leftRightLook, 180f, -upDownLook);
 		//Head.localPosition = new Vector3(0f,0.6275087f,(Head.localEulerAngles.x * 0.1f) -3.483373e-17f );
