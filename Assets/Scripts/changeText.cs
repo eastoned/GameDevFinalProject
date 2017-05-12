@@ -20,21 +20,21 @@ public class changeText : MonoBehaviour {
 
 		timerText += Time.deltaTime;
 
-		if (timerText < 3) {
+		if (timerText < 2) {
 			myText.text = "SIT";
-			myText.fontSize = 95;
-			myText.font = regular;
-		} else if (timerText < 6) {
-			myText.text = "STAY";
 			myText.fontSize = 105;
-		} else if (timerText < 9) {
-			myText.text = "S T A B";
+			myText.font = regular;
+		} else if (timerText < 4) {
+			myText.text = "STAY";
 			myText.fontSize = 115;
+		} else if (timerText < 6) {
+			myText.text = "S T A B";
+			myText.fontSize = 125;
 			myText.font = bold;
 		}
 
 
-		if (timerText >= 9) {
+		if (timerText >= 6) {
 			timerText = 0;
 		}
 	}
