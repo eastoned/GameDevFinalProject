@@ -18,8 +18,10 @@ public class Timer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		timeleft = 30f;
 		//dogomovement = x.GetComponent<DogoMovement> ();
 		worldstate = 0;
+		gameOver = false;
 	}
 	
 	// Update is called once per frame
