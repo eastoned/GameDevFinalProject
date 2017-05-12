@@ -92,21 +92,23 @@ public class knifeDestroy : MonoBehaviour {
 
 			} else {				Destroy (other.gameObject);
 				globalcounter += 1;
-				counter1 = 0;				Instantiate (Crumb, other.transform.position, other.transform.rotation);
+				counter1 = 0;				Instantiate (Crumb, other.transform.position, Random.rotation);
 				Instantiate (destParticle, other.transform.position, other.transform.rotation);
 			}		}
 		else if (other.gameObject.layer == 9) {
 				balloonPop.SetActive (true);
-					Instantiate (spark, other.transform.position, other.transform.rotation);{
-					Destroy (other.gameObject);
-					globalcounter += 1;
+				Instantiate (spark, other.transform.position, other.transform.rotation);
+				Instantiate (destParticle, other.transform.position, other.transform.rotation);
+				Destroy (other.gameObject);
+				globalcounter += 1;
+
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 				}
 			}
-	}
+
 	void OnTriggerExit(Collider other){
 		balloonPop.SetActive (false);
 		knifeWood.SetActive (false);
