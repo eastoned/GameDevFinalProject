@@ -14,12 +14,15 @@ public class Timer : MonoBehaviour {
 
 	//DogoMovement dogomovement;
 
-	public GameObject ownerCam;
+	public GameObject ownerCam, carArrivingSound;
+
 
 	// Use this for initialization
 	void Start () {
 		//dogomovement = x.GetComponent<DogoMovement> ();
 		worldstate = 0;
+
+		carArrivingSound.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -44,6 +47,12 @@ public class Timer : MonoBehaviour {
 		{
 			timeleft -= Time.deltaTime;
 //			Debug.Log(timeleft);
+		}
+
+		if(timeleft <= 10){
+
+			carArrivingSound.SetActive (true);
+
 		}
 
 		if (timeleft <= 0) {

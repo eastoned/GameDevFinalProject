@@ -15,6 +15,8 @@ public class endAnimationStuff : MonoBehaviour {
 
 		allCams.SetActive(false);
 		hand.SetActive(false);
+
+		dogo.localPosition = Vector3.zero;
 	}
 	
 	// Update is called once per frame
