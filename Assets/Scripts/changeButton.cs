@@ -17,23 +17,23 @@ public class changeButton : MonoBehaviour {
 		timerText += Time.deltaTime * speed;
 
 		if (timerText < 1) {
-			myText.text = "PLAY";
+			myText.text = "PLAY?";
 		} else if (timerText < 2) {
-			myText.text = "WAG";
+			myText.text = "WAG?";
 		} else if (timerText < 3) {
-			myText.text = "RUN";
+			myText.text = "RUN?";
 		} else if (timerText < 4) {
-			myText.text = "BALL";
+			myText.text = "BALL?";
 		} else if (timerText < 5) {
-			myText.text = "STAY";
+			myText.text = "STAY?";
 		} else if (timerText < 6) {
-			myText.text = "CHASE";
+			myText.text = "CHASE?";
 		} else if (timerText < 7) {
-			myText.text = "FETCH";
+			myText.text = "FETCH?";
 		} else if (timerText < 8) {
-			myText.text = "BARK";
+			myText.text = "BARK?";
 		} else if (timerText < 9) {
-			myText.text = "STAB";
+			myText.text = "SLASH?";
 
 		}
 
