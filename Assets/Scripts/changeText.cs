@@ -7,6 +7,7 @@ public class changeText : MonoBehaviour {
 	private Text myText;
 	public float timerText;
 	public Font regular, bold;
+	public float bounceValue;
 	// Use this for initialization
 	void Start () {
 		myText = this.GetComponent<Text>();
@@ -14,18 +15,21 @@ public class changeText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		bounceValue = Mathf.Sin (Time.time * 1f) / 5f;
+		this.GetComponent<RectTransform>().position = new Vector3 (transform.position.x, transform.position.y + bounceValue, transform.position.z);
+
 		timerText += Time.deltaTime;
 
 		if (timerText < 3) {
-			myText.text = "Sit";
-			myText.fontSize = 20;
+			myText.text = "SIT";
+			myText.fontSize = 95;
 			myText.font = regular;
 		} else if (timerText < 6) {
-			myText.text = "Stay";
-			myText.fontSize = 25;
+			myText.text = "STAY";
+			myText.fontSize = 105;
 		} else if (timerText < 9) {
 			myText.text = "S T A B";
-			myText.fontSize = 40;
+			myText.fontSize = 115;
 			myText.font = bold;
 		}
 

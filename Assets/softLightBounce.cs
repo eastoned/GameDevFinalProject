@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class startGame : MonoBehaviour {
+public class softLightBounce : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,6 @@ public class startGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		this.GetComponent<Light> ().range = 28 + (4 * Mathf.Sin (Time.time));
 	}
 }

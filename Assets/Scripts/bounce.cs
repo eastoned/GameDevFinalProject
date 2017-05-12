@@ -13,5 +13,6 @@ public class bounce : MonoBehaviour {
 	void Update () {
 		bounceValue = .01f * Mathf.Sin (Time.time * 1f);
 		this.transform.position = new Vector3 (transform.position.x, transform.position.y + bounceValue, transform.position.z);
+		this.transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, transform.localEulerAngles.y + 1f, transform.localEulerAngles.z);
 	}
 }

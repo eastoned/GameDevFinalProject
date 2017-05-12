@@ -1,17 +1,54 @@
 fileFormatVersion: 2
-guid: c2041f3521299405b84707b1cee3a534
-timeCreated: 1494473890
+guid: e6599427dc4a0455f98896e9d3adb8ab
+timeCreated: 1492718179
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pCube3
-    6400000: //RootNode
+    100000: Back
+    100002: backLeftLeg
+    100004: backLeftPaw
+    100006: backRightLeg
+    100008: backRightPaw
+    100010: BODY
+    100012: //RootNode
+    100014: HEAD
+    100016: LeftBottomEar
+    100018: leftFrontPaw
+    100020: leftFrontShoulder
+    100022: LeftTopEar
+    100024: polySurface4
+    100026: RightBottomEar
+    100028: rightFrontPaw
+    100030: rightFrontShoulder
+    100032: RightTopEar
+    100034: tailEnd
+    100036: tailFront
+    100038: tailMid
+    400000: Back
+    400002: backLeftLeg
+    400004: backLeftPaw
+    400006: backRightLeg
+    400008: backRightPaw
+    400010: BODY
+    400012: //RootNode
+    400014: HEAD
+    400016: LeftBottomEar
+    400018: leftFrontPaw
+    400020: leftFrontShoulder
+    400022: LeftTopEar
+    400024: polySurface4
+    400026: RightBottomEar
+    400028: rightFrontPaw
+    400030: rightFrontShoulder
+    400032: RightTopEar
+    400034: tailEnd
+    400036: tailFront
+    400038: tailMid
+    4300000: polySurface4
+    7400000: Take 001
     9500000: //RootNode
+    13700000: polySurface4
   materials:
     importMaterials: 1
     materialName: 0
@@ -36,7 +73,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 2
     meshCompression: 0
     addColliders: 1
     importBlendShapes: 1
