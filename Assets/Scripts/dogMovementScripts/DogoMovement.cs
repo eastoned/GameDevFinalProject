@@ -32,6 +32,8 @@ public class DogoMovement : MonoBehaviour {
 	public float rotateThreshold;
 	public CharacterController chrctrl;
 
+	public float startYPos;
+
 
 
 
@@ -41,10 +43,14 @@ public class DogoMovement : MonoBehaviour {
 		verticalSpeed = 7f;
 		rotateSpeed = 90f;
 
+		startYPos = transform.localPosition.y;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+		//transform.localPosition = new Vector3(transform.localPosition.x, startYPos,transform.localPosition.z);
 		
 		if ( Input.GetMouseButton(0) ) {
 			Cursor.lockState = CursorLockMode.Locked; // lock cursor always in middle of screen
