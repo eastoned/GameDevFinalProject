@@ -5,19 +5,25 @@ using UnityEngine;
 public class DogToiletDrinking : MonoBehaviour {
 
 	public GameObject dogToiletDrinking;
+	public GameObject Dogo;
 	// Use this for initialization
 	void Start () {
-		
+		dogToiletDrinking.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		dogToiletDrinking.SetActive (false);
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.layer == 10) {
+		if (other.gameObject == Dogo) {
 			dogToiletDrinking.SetActive (true);
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.gameObject == Dogo) {
+			dogToiletDrinking.SetActive (false);
 		}
 	}
 }
