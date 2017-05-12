@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class endAnimationStuff : MonoBehaviour {
 
@@ -35,6 +36,11 @@ public class endAnimationStuff : MonoBehaviour {
 			if(hand.transform.localPosition.y <= -6.8){
 				hand.transform.Translate(Vector3.up * Time.deltaTime *4f);
 			}
+
+		}
+		if (timerThingy >= 21){
+
+			SceneManager.LoadScene ("Ending");
 
 		}
 			
