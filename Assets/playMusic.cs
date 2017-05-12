@@ -19,13 +19,17 @@ public class playMusic : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 
-		if(col.gameObject.layer == 10){
 
-			audioSourceMusic.SetActive(true);
-		}else{
+		//if(audioSourceMusic.activeSelf == false){
+			if(col.gameObject.layer == 10){
 
-			audioSourceMusic.SetActive(false);
-		}
+				audioSourceMusic.SetActive(true);
+			}
+//			else{
+//
+//				audioSourceMusic.SetActive(false);
+//			}
+		//}
 
 	}
 }
