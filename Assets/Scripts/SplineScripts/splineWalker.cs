@@ -5,7 +5,7 @@ using UnityEngine;
 public class splineWalker : MonoBehaviour {
 
 
-	public BezierSpline spline, spline2, spline3;
+	public BezierSpline spline;
 
 	public float duration;
 
@@ -93,7 +93,7 @@ public class splineWalker : MonoBehaviour {
 			}
 
 
-			if(Vector3.Distance(TargObj.position,sleepingPos) <= 15){
+			if(Vector3.Distance(TargObj.position,sleepingPos) <= 10){
 
 				sleeping = false;
 				goBackSleep = 0f;
