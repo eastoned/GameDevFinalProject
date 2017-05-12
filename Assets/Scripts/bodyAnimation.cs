@@ -27,7 +27,8 @@ public class bodyAnimation : MonoBehaviour {
 	// Update is called once per frame	
 	void Update () {
 		if (ownerHome) {
-			
+			walkValue = 0;
+			turnValue = 0;
 
 
 		}
@@ -55,7 +56,7 @@ public class bodyAnimation : MonoBehaviour {
 
 
 
-			headBob.transform.localPosition = new Vector3 (headBob.transform.localPosition.x + walkValue / 500, 0.6275087f, headBob.transform.localPosition.z);
+		//	headBob.transform.localPosition = new Vector3 (headBob.transform.localPosition.x + walkValue / 700, 0.6275087f, headBob.transform.localPosition.z);
 
 //			leftEar.transform.localEulerAngles = new Vector3 (leftEar.transform.localEulerAngles.x, leftEar.transform.localEulerAngles.y, leftEar.transform.localEulerAngles.z + (1 * Mathf.Sin (Time.deltaTime * 20f)));
 //			rightEar.transform.localEulerAngles = new Vector3 (rightEar.transform.localEulerAngles.x, rightEar.transform.localEulerAngles.y, rightEar.transform.localEulerAngles.z + (1 * Mathf.Sin (Time.deltaTime * 20f)));

@@ -70,7 +70,6 @@ public class knifeDestroy : MonoBehaviour {
 
 	public Collider knifeCol;
 	private int counter1 = 0;
-	private int counter2= 0;
 	public GameObject spark;
 	public GameObject Crumb;
 	public GameObject smallBall;
@@ -98,14 +97,9 @@ public class knifeDestroy : MonoBehaviour {
 			}		}
 		else if (other.gameObject.layer == 9) {
 				balloonPop.SetActive (true);
-				if (counter2 < 3) {
-					counter2++;
-					Instantiate (spark, other.transform.position, other.transform.rotation);
-
-				} else {
+					Instantiate (spark, other.transform.position, other.transform.rotation);{
 					Destroy (other.gameObject);
 					globalcounter += 1;
-					counter2 = 0;
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
 					Instantiate (smallBall, other.transform.position, other.transform.rotation);
